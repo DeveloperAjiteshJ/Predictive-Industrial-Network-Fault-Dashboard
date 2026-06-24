@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+pydantic
+python-multipart
+pandas
+numpy
+scapy
+pyshark
+psutil
+reportlab

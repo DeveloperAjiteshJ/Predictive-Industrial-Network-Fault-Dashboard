@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  html, body, #root {
+    height: 100%;
+  }
+  html {
+    overflow-x: hidden;
+  }
+  body {
+    @apply bg-cream text-ink antialiased;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    overflow-x: hidden;
+    background:
+      radial-gradient(circle at top left, rgba(184, 147, 72, 0.20), transparent 24%),
+      radial-gradient(circle at top right, rgba(44, 122, 123, 0.14), transparent 26%),
+      linear-gradient(180deg, #f8f1e4 0%, #efe3ce 52%, #e7d7bc 100%);
+  }
+  #root {
+    width: 100%;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-3xl border border-black/10 bg-paper/85 shadow-warm backdrop-blur;
+  }
+  .section-title {
+    @apply text-lg font-extrabold tracking-tight text-ink;
+  }
+  .muted {
+    @apply text-sm text-slate-500;
+  }
+  .pill {
+    @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-extrabold uppercase tracking-wide;
+  }
+  .nav-item {
+    @apply flex items-center justify-between rounded-2xl px-4 py-3 text-sm font-semibold transition;
+  }
+  .nav-item-active {
+    @apply bg-ink text-paper shadow-lg;
+  }
+  .nav-item-idle {
+    @apply bg-white/45 text-ink hover:bg-white/70;
+  }
+  .control-input {
+    @apply w-full rounded-2xl border border-black/10 bg-white/75 px-3 py-2 text-sm outline-none transition focus:border-ink/30 focus:ring-2 focus:ring-ink/10;
+  }
+  .metric-switch {
+    @apply inline-flex cursor-pointer items-center gap-2 rounded-full border border-black/10 bg-white/75 px-2 py-1 text-xs font-black uppercase tracking-wider text-slate-600 transition;
+  }
+  .metric-switch[data-on='false'] {
+    @apply bg-rose-100 text-rose-900;
+  }
+  .metric-switch[data-on='true'] {
+    @apply bg-emerald-100 text-emerald-900;
+  }
+  .metric-switch-track {
+    @apply relative h-6 w-11 rounded-full transition-colors;
+    background-color: #ef4444;
+  }
+  .metric-switch[data-on='true'] .metric-switch-track {
+    background-color: #10b981;
+  }
+  .metric-switch-thumb {
+    @apply absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform duration-200;
+  }
+  .metric-switch[data-on='true'] .metric-switch-thumb {
+    transform: translateX(1.25rem);
+  }
+  .metric-switch-state {
+    min-width: 2rem;
+    text-align: center;
+  }
+  .settings-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  @media (min-width: 1600px) {
+    .settings-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .progress-track {
+    @apply h-2 overflow-hidden rounded-full bg-slate-200;
+  }
+  .progress-fill {
+    @apply h-full rounded-full bg-ink transition-all duration-300;
+  }
+  .warm-btn {
+    @apply rounded-2xl px-4 py-2 text-sm font-semibold transition;
+  }
+  .warm-btn-primary {
+    @apply bg-ink text-paper hover:bg-slate-800;
+  }
+  .warm-btn-secondary {
+    @apply bg-white/70 text-ink hover:bg-white;
+  }
+}
